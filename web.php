@@ -25,6 +25,10 @@ Route::get('/data', function () {
     return view('data');
 });
 
+Route::get('/daftar', function () {
+    return view('daftar');
+});
+
 // controller
 Route::get("/tescontroller", "tesController@show");
 
@@ -32,3 +36,7 @@ Route::get("/tescontroller", "tesController@show");
 Route::resource('siswa', 'SiswaController');
 
 Route::post('data', 'SiswaController@store');
+
+Route::resource('student', 'StudentsController');
+
+Route::post('daftar', 'StudentsController@store');
