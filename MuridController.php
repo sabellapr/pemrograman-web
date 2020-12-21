@@ -8,7 +8,7 @@ use Illuminate\Support\Facades\DB;
 class MuridController extends Controller
 {
     public function index(){
-       $dataa = DB::table('murid')->get();
+       $dataa = DB::table('muriid')->get();
        return view('murid', compact('dataa'));
     }
    

@@ -29,14 +29,6 @@
         <td>{{ $item->nama }} </td>
         <td>{{ $item->jurusan }}</td>
       </tr>
-      <tr>
-        <th scope="row">{{ $loop->iteration }}</th>
-        <td>{{ $item->nis }} </td>
-        <td>{{ $item->nama }} </td>
-        <td>{{ $item->jurusan }} </td>
-      </tr>
-      @endforeach
-    </tbody>
   </table>
 </div>
 </div>
