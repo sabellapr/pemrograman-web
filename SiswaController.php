@@ -76,6 +76,7 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
+       
         Student::updateOrcreate(['id' => $id], $request->all());
 
        return redirect(route('viewData'));

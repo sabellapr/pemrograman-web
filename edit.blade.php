@@ -14,15 +14,15 @@
 @csrf
     <div class="form-group">
       <label for="InputNama">Nisn</label>
-      <input type="name" class="form-control" id="InputNisn" value="{{ $student->nisn }}">
+      <input name="nisn" type="number" class="form-control" id="InputNisn" value="{{ $student->nisn }}">
     </div>
     <div class="form-group">
       <label for="InputTelepon">Nama</label>
-      <input type="name" class="form-control" id="InputNama" value="{{ $student->nama }}">
+      <input name="nama" type ="text" class="form-control" id="InputNama" value="{{ $student->nama }}">
     </div>
     <div class="form-group">
         <label for="InputTelepon">Jurusan</label>
-        <input type="name" class="form-control" id="InputJurusan" value="{{$student->jurusan }}">
+        <input name="jurusan" type="text" class="form-control" id="InputJurusan" value="{{ $student->jurusan }}">
       </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
