@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Siswa;
+use App\Student;
+use Illuminate\Support\Facades\DB;
 
 class SiswaController extends Controller
 {
@@ -14,9 +16,11 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        //untuk menampilkan view data
-        return "index";
+        $dataa = DB::table('student')->get();
+       return view('murid', compact('dataa'));
+
     }
+        
 
     /**
      * Show the form for creating a new resource.
@@ -59,7 +63,8 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        $student = Student::find($id);
+        return view('edit', compact('student'));
     }
 
     /**
@@ -71,7 +76,9 @@ class SiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Student::updateOrcreate(['id' => $id], $request->all());
+
+       return redirect(route('viewData'));
     }
 
     /**
@@ -82,6 +89,9 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $student = Student::find($id);
+        $student->delete();
+
+        return redirect(route('viewData'));
     }
 }

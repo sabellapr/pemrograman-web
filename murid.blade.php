@@ -16,19 +16,26 @@
     <thead>
       <tr>
         <th scope="col">No</th>
-        <th scope="col">Nis</th>
+        <th scope="col">Nisn</th>
         <th scope="col">Nama</th>
         <th scope="col">Jurusan</th>
+        <th scope="col">Aksi</th>
       </tr>  
     </thead>
     <tbody>
         @foreach ($dataa as $item)
       <tr>
         <th scope="row">{{ $loop->iteration }}</th>
-        <td>{{ $item->nis }} </td>
+        <td>{{ $item->nisn }} </td>
         <td>{{ $item->nama }} </td>
         <td>{{ $item->jurusan }}</td>
+        <td>
+          <a href="{{ route('editData', $item->id) }}" class="btn btn-success btn-flat btn-sm">Edit</a>
+          <a href="{{ route('deleteData', $item->id) }}" class="btn btn-danger btn-flat btn-sm">Delete</a>
+        </td>
       </tr>
+      @endforeach
+    </tbody>
   </table>
 </div>
 </div>

@@ -25,9 +25,12 @@ Route::get('/data', function () {
     return view('data');
 });
 
-Route::get('/murid', 'MuridController@index');
-
+Route::get('/murid', 'SiswaController@index');
 // resource
 Route::resource('siswa', 'SiswaController');
 
 Route::post('data', 'SiswaController@store');
+Route::get('/murid/{id}edit', 'SiswaController@edit')->name('editData');
+Route::post('/murid/{id}/update', 'SiswaController@update')->name('updateData');
+Route::get('/murid/view', 'SiswaController@index')->name('viewData');
+Route::get('murid/{id}/delete', 'SiswaController@destroy')->name('deleteData');
