@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Siswa;
-use App\Student;
+use App\Murid;
 use Illuminate\Support\Facades\DB;
 
 class SiswaController extends Controller
@@ -16,7 +16,7 @@ class SiswaController extends Controller
      */
     public function index()
     {
-        $dataa = DB::table('student')->get();
+        $dataa = DB::table('murid')->get();
        return view('murid', compact('dataa'));
 
     }
@@ -40,8 +40,28 @@ class SiswaController extends Controller
      */
     public function store(Request $request)
     {
-        Siswa::create($request->all());
+
+        $message = [
+            'required' => 'pastikan field sudah terisi'
+        ];
+
+        $validate = $request->validate([
+
+            'nisn' => 'required',
+            'nama' => 'required',
+            'jurusan' => 'required',
+        ], $message);
+
+        Murid::create($request->all());
         return redirect()->back();
+        //$validate = $request->validate([
+
+            //'nama' => 'required',
+            //'telepon' => 'required|numeric|digits:12',
+       // ]);
+
+       // Siswa::create($request->all());
+       // return redirect()->back();
     }
 
     /**
@@ -63,8 +83,8 @@ class SiswaController extends Controller
      */
     public function edit($id)
     {
-        $student = Student::find($id);
-        return view('edit', compact('student'));
+        $murid = Murid::find($id);
+        return view('edit', compact('murid'));
     }
 
     /**
@@ -77,7 +97,7 @@ class SiswaController extends Controller
     public function update(Request $request, $id)
     {
        
-        Student::updateOrcreate(['id' => $id], $request->all());
+        Murid::updateOrcreate(['id' => $id], $request->all());
 
        return redirect(route('viewData'));
     }
@@ -90,8 +110,8 @@ class SiswaController extends Controller
      */
     public function destroy($id)
     {
-        $student = Student::find($id);
-        $student->delete();
+        $murid = Murid::find($id);
+        $murid->delete();
 
         return redirect(route('viewData'));
     }
