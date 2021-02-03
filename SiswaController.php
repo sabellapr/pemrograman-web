@@ -54,14 +54,7 @@ class SiswaController extends Controller
 
         Murid::create($request->all());
         return redirect()->back();
-        //$validate = $request->validate([
-
-            //'nama' => 'required',
-            //'telepon' => 'required|numeric|digits:12',
-       // ]);
-
-       // Siswa::create($request->all());
-       // return redirect()->back();
+    
     }
 
     /**

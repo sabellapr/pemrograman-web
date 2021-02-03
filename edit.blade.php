@@ -10,19 +10,19 @@
 <main role="main" class="container">
   <div class="row">
     <div class="col-md-6 blog-main">
-<form style="margin-top: 10%" action = "{{ route('updateData', $student->id) }}" method= "post">
+<form style="margin-top: 10%" action = "{{ route('updateData', $murid->id) }}" method= "post">
 @csrf
     <div class="form-group">
-      <label for="InputNama">Nisn</label>
-      <input name="nisn" type="number" class="form-control" id="InputNisn" value="{{ $student->nisn }}">
+      <label for="InputTelepon">NISN</label>
+      <input name="nisn" type ="text" class="form-control" id="InputNisn" value="{{ $murid->nisn }}">
     </div>
     <div class="form-group">
       <label for="InputTelepon">Nama</label>
-      <input name="nama" type ="text" class="form-control" id="InputNama" value="{{ $student->nama }}">
+      <input name="nama" type ="text" class="form-control" id="InputNama" value="{{ $murid->nama }}">
     </div>
     <div class="form-group">
         <label for="InputTelepon">Jurusan</label>
-        <input name="jurusan" type="text" class="form-control" id="InputJurusan" value="{{ $student->jurusan }}">
+        <input name="jurusan" type="text" class="form-control" id="InputJurusan" value="{{ $murid->jurusan }}">
       </div>
     <button type="submit" class="btn btn-primary">Submit</button>
   </form>
